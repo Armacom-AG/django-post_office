@@ -43,6 +43,7 @@ def get_email_template(name, language=''):
     else:
         composite_name = '%s:%s' % (name, language)
         email_template = cache.get(composite_name)
+
         if email_template is None:
             email_template = EmailTemplate.objects.get(name=name, language=language)
             cache.set(composite_name, email_template)
@@ -90,6 +91,7 @@ def create_attachments(attachment_files):
         if mimetype:
             attachment.mimetype = mimetype
         attachment.headers = headers
+        attachment.name = filename
         attachment.file.save(filename, content=content, save=True)
 
         attachments.append(attachment)
