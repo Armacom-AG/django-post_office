@@ -21,7 +21,7 @@ def forwards(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('post_office', '0009_requeued_mode'),
+        ('post_office', '0010_armacom'),
     ]
 
     operations = [
